@@ -4,6 +4,8 @@ const User = require("../models/User")
 
 const router = express.Router()
 
+const jwt = require("jsonwebtoken")
+
 router.post("/register",async (req,res)=>{
     try{
         const { name, email, password } = req.body
@@ -27,4 +29,49 @@ router.post("/register",async (req,res)=>{
         })
     }
 })
+
+router.post("/login", async (req,res)=>{
+    try {
+        const { email, password } = req.body
+        const existUser = await User.findOne({ email })
+        if (!existUser) {
+            return res.status(400).json({
+                message: "User not found"
+            })
+        }
+
+        const isMatch = await bcrypt.compare(
+            password,
+            existUser.password
+        )
+        if (!isMatch) {
+            return res.status(400).json({
+                message: "Invalid Credentials"
+            })
+        }
+        const token = jwt.sign(
+            {
+                id: existUser._id,
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn : "7d",
+            }
+        )
+
+        res.json({
+            token,
+            user: {
+                id : existUser._id,
+                name: existUser.name,
+                email: existUser.email
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        })
+    }
+})
+
 module.exports = router;
