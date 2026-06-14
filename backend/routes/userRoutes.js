@@ -5,6 +5,7 @@ const User = require("../models/User")
 const router = express.Router()
 
 const jwt = require("jsonwebtoken")
+const protect = require("../middleware/authMiddleware")
 
 router.post("/register",async (req,res)=>{
     try{
@@ -72,6 +73,13 @@ router.post("/login", async (req,res)=>{
             message: error.message,
         })
     }
+})
+
+router.get("/profile",protect,async(req,res)=>{
+    res.json({
+        message: "protected Route Accesed",
+        user: req.user,
+    })
 })
 
 module.exports = router;
