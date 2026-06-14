@@ -1,10 +1,10 @@
 const express = require("express")
 const Product = require("../models/Product")
 const protect = require("../middleware/authMiddleware")
-
+const isAdmin = require("../middleware/adminMiddleware");
 const router = express.Router()
 
-router.post("/", protect, async (req, res) => {
+router.post("/", protect,isAdmin, async (req, res) => {
   try {
     const {
       name,
@@ -64,7 +64,7 @@ router.get("/:id", async (req, res) => {
   }
 })
 
-router.put("/:id", protect, async (req, res) => {
+router.put("/:id", protect,isAdmin, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
 
@@ -90,7 +90,7 @@ router.put("/:id", protect, async (req, res) => {
   }
 })
 
-router.delete("/:id", protect, async (req, res) => {
+router.delete("/:id", protect,isAdmin, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
 
