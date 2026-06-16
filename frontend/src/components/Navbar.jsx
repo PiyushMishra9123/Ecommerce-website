@@ -17,6 +17,7 @@ return (
         <>
           <Link to="/profile">Profile</Link>
           <Link to="/cart">Cart</Link>
+          <Link to="/orders">Orders</Link>
           <span>
             {userInfo.user.name}
           </span>

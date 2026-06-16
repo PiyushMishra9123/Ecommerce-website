@@ -40,6 +40,25 @@ if (existItem) {
 
 const removeFromCart = (id) => {
   setCartItems(
+    cartItems.filter(
+      (item) => item._id !== id
+    )
+  );
+};
+const increaseQty = (id) => {
+  setCartItems(
+    cartItems.map((item) =>
+      item._id === id
+        ? {
+            ...item,
+            qty: item.qty + 1,
+          }
+        : item
+    )
+  );
+};
+const decreaseQty = (id) => {
+  setCartItems(
     cartItems.flatMap((item) => {
       if (item._id !== id) return item;
 
@@ -56,7 +75,7 @@ const removeFromCart = (id) => {
 };
 
 return (
-<CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+<CartContext.Provider value={{ cartItems, addToCart, removeFromCart, increaseQty, decreaseQty,}}>
 {children}
 </CartContext.Provider>
 );
