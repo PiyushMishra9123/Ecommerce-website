@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([])
@@ -45,6 +46,7 @@ function Home() {
             <p>
               Category: {product.category}
             </p>
+            <Link to={`/product/${product._id}`}className="bg-black text-white px-4 py-2 rounded inline-block mt-3"> View Details</Link>
           </div>
         ))}
       </div>
