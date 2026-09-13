@@ -1,218 +1,433 @@
-# 🛒 E-Commerce Website
+🛒 ShopKart - MERN E-Commerce Website
 
-A full-stack **MERN E-commerce Application** built with **React.js, Node.js, Express.js, and MongoDB**. The project provides a complete foundation for an online shopping platform with user authentication, product management, shopping cart, order management, and an admin dashboard.
+A full-stack E-Commerce web application built using the MERN stack.
+This project provides a complete online shopping experience with user
+authentication, product management, shopping cart, order management,
+payment integration, and admin functionality.
 
-> 🚧 **Project Status:** Work in Progress
+🌐 Live Demo
 
----
+Live Website:
+https://ecommerce-website-six-beige.vercel.app/
 
-## ✨ Features
+Backend API:
+https://ecommerce-website-00z8.onrender.com/
 
-* 🔐 **User Authentication**
+GitHub Repository:
+https://github.com/PiyushMishra9123/Ecommerce-website
 
-  * User registration and login
-  * Secure authentication flow
+✨ Features
 
-* 🛡️ **JWT Authorization**
+🔐 User Authentication
 
-  * Token-based authentication
-  * Protected application features and routes
+User registration
 
-* 🛍️ **Product Management**
+User login
 
-  * Manage and organize products
-  * Product-related operations through the backend
+JWT-based authentication
 
-* 🛒 **Shopping Cart**
+Secure password hashing
 
-  * Add products to cart
-  * Manage cart items
+Protected routes
 
-* 📦 **Order Management**
+Role-based authorization
 
-  * Create and manage orders
-  * Store order-related information
+🛍️ Product Management
 
-* 👨‍💼 **Admin Dashboard**
+View products
 
-  * Admin-focused management functionality
-  * Manage application data and products
+View product details
 
-* 📱 **Responsive User Interface**
+Product categories
 
-  * Clean and user-friendly frontend
-  * Designed for a smooth shopping experience
+Add and manage products
 
----
+Admin product management
 
-## 🧑‍💻 Tech Stack
+🛒 Shopping Cart
 
-### Frontend
+Add products to cart
 
-* React.js
-* JavaScript
-* HTML5
-* CSS3
+Remove products from cart
 
-### Backend
+Update product quantity
 
-* Node.js
-* Express.js
-* REST APIs
-* JWT Authentication
+View cart items
 
-### Database
+Calculate total price
 
-* MongoDB
+📦 Order Management
 
-### Development Tools
+Create orders
 
-* Git
-* GitHub
-* VS Code
+Store order information
 
----
+View order details
 
-## 🏗️ Project Structure
+Manage customer orders
 
-```text
+💳 Payment Integration
+
+Razorpay payment gateway integration
+
+Payment order creation
+
+Payment verification
+
+Secure backend payment handling
+
+Payment functionality is currently configured for development/testing
+purposes.
+
+👨‍💼 Admin Dashboard
+
+Admin authentication
+
+Manage products
+
+Manage application data
+
+Protected admin functionality
+
+📱 Responsive Design
+
+Responsive user interface
+
+Mobile-friendly design
+
+Clean navigation
+
+User-friendly shopping experience
+
+🧑‍💻 Tech Stack
+
+Frontend
+
+React.js
+
+JavaScript
+
+HTML5
+
+CSS3
+
+Vite
+
+Axios
+
+React Router
+
+Backend
+
+Node.js
+
+Express.js
+
+REST APIs
+
+JWT
+
+bcryptjs
+
+Multer
+
+Database
+
+MongoDB
+
+MongoDB Atlas
+
+Mongoose
+
+Payment
+
+Razorpay
+
+Deployment
+
+Frontend: Vercel
+
+Backend: Render
+
+Database: MongoDB Atlas
+
+Tools
+
+Git
+
+GitHub
+
+VS Code
+
+Thunder Client
+
+🏗️ Project Structure
+
 Ecommerce-website/
 │
 ├── frontend/
-│   └── React.js frontend application
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
 │
 ├── backend/
-│   └── Node.js + Express.js backend
+│   ├── config/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── uploads/
+│   ├── server.js
+│   └── package.json
 │
 └── README.md
-```
 
----
+🔄 How It Works
 
-## 🔄 Application Overview
+The application follows a client-server architecture.
 
-The application follows a **client-server architecture**:
+The user interacts with the React frontend.
 
-1. The user interacts with the React.js frontend.
-2. The frontend communicates with the backend through APIs.
-3. The Express.js server handles application requests and business logic.
-4. MongoDB stores application data.
-5. JWT is used for authentication and authorization.
-6. Admin functionality provides management capabilities for the application.
+The frontend sends requests to the Express.js backend.
 
----
+The backend processes requests and handles business logic.
 
-## 🚀 Getting Started
+JWT is used for authentication and authorization.
 
-### Prerequisites
+MongoDB Atlas stores users, products, and order data.
+
+Razorpay handles payment-related operations.
+
+The backend sends responses back to the frontend.
+
+The frontend displays the required information to the user.
+
+🚀 Getting Started
+
+Prerequisites
 
 Make sure you have the following installed:
 
-* [Node.js](https://nodejs.org/)
-* npm
-* MongoDB
-* Git
+Node.js
 
-### 1. Clone the Repository
+npm
 
-```bash
+Git
+
+MongoDB or MongoDB Atlas
+
+VS Code
+
+1. Clone the Repository
+
 git clone https://github.com/PiyushMishra9123/Ecommerce-website.git
-```
 
-### 2. Navigate to the Project
+Navigate to the project:
 
-```bash
 cd Ecommerce-website
-```
 
-### 3. Setup Frontend
+2. Setup Frontend
 
-```bash
 cd frontend
+
+Install dependencies:
+
 npm install
-```
 
-Start the frontend development server:
+Start the frontend:
 
-```bash
 npm run dev
-```
 
-### 4. Setup Backend
+Frontend will run on:
 
-Open another terminal:
+http://localhost:5173
 
-```bash
-cd backend
+3. Setup Backend
+
+Open another terminal and run:
+
+cd Ecommerce-website/backend
+
+Install dependencies:
+
 npm install
-```
 
-Start the backend server using the command configured in the backend `package.json`.
+Start the backend:
 
----
+npm start
 
-## 🔐 Environment Variables
+Backend will run on:
 
-Create a `.env` file inside the backend directory and add the required environment variables according to your backend configuration.
+http://localhost:5000
+
+🔐 Environment Variables
+
+Create a .env file inside the backend folder.
 
 Example:
 
-```env
 PORT=5000
-MONGODB_URI=your_mongodb_connection_string
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-```
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_SECRET=your_razorpay_secret
 
-> ⚠️ Never commit your `.env` file or secret keys to GitHub.
+Do not upload .env to GitHub.
 
----
+Make sure .gitignore contains:
 
+.env
+node_modules/
 
-## 🎯 Learning Outcomes
+🔗 API Modules
+
+The backend provides REST APIs for:
+
+Module     Description
+
+Users      Registration, login and authentication
+Products   Product management and product retrieval
+Orders     Order creation and order management
+Payment    Razorpay payment operations
+Upload     Image and file upload functionality
+
+🧪 Testing
+
+The application can be tested using:
+
+Browser
+
+Thunder Client
+
+Postman
+
+Important flows:
+
+User Registration
+
+User Login
+
+Product Listing
+
+Product Details
+
+Add to Cart
+
+Cart Management
+
+Order Creation
+
+Payment
+
+Admin Operations
+
+☁️ Deployment
+
+The application is deployed using cloud services.
+
+Frontend
+
+Vercel
+
+https://ecommerce-website-six-beige.vercel.app/
+
+Backend
+
+Render
+
+https://ecommerce-website-00z8.onrender.com/
+
+Database
+
+MongoDB Atlas
+
+The production backend connects to MongoDB Atlas using environment
+variables.
+
+🎯 Learning Outcomes
 
 Through this project, I gained practical experience in:
 
-* Building full-stack web applications
-* Developing REST APIs
-* React.js frontend development
-* Node.js and Express.js backend development
-* MongoDB database integration
-* JWT-based authentication and authorization
-* Managing application data
-* Structuring frontend and backend projects
-* Using Git and GitHub for version control
+Full-stack MERN development
 
----
+React.js development
 
-## 🔮 Future Improvements
+REST API development
 
-Some planned improvements for the project include:
+Node.js and Express.js
 
-* 💳 Payment gateway integration
-* 🔎 Advanced product search and filtering
-* ⭐ Product reviews and ratings
-* 📊 Improved admin analytics
-* 📧 Email notifications
-* ☁️ Production deployment
-* 📱 Further UI/UX improvements
+MongoDB and Mongoose
 
----
+JWT authentication
 
-## 👨‍💻 Author
+Role-based authorization
 
-**Piyush Kumar Mishra**
+Password hashing
 
-* GitHub: [PiyushMishra9123](https://github.com/PiyushMishra9123)
-* LinkedIn: [Piyush Mishra](https://www.linkedin.com/in/piyush-mishra-284585297)
+Shopping cart implementation
 
----
+Order management
 
-## ⭐ Support
+Payment gateway integration
 
-If you find this project useful or interesting, consider giving the repository a ⭐ on GitHub.
+File upload handling
 
----
+Git and GitHub
 
-## 📄 License
+Cloud deployment
 
-This project is created for **learning and development purposes**.
+Connecting frontend and backend in production
+
+🔮 Future Improvements
+
+Advanced product search
+
+Product filtering and sorting
+
+Product reviews and ratings
+
+Wishlist functionality
+
+Advanced admin analytics
+
+Email notifications
+
+Order tracking
+
+Invoice generation
+
+Cloud image storage
+
+Improved UI/UX
+
+Real-time order notifications
+
+👨‍💻 Author
+
+Piyush Kumar Mishra
+
+B.Tech Computer Science & Engineering Graduate
+
+GitHub
+
+https://github.com/PiyushMishra9123
+
+LinkedIn
+
+https://www.linkedin.com/in/Piyush-Mishra-284585297
+
+⭐ Support
+
+If you find this project useful or interesting, consider giving the
+repository a star ⭐.
+
+📄 License
+
+This project is created for learning, development, and portfolio
+purposes.
