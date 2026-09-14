@@ -329,8 +329,8 @@ function Home() {
               }}
               className={`flex-shrink-0 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 category === cat
-                  ? "bg-blue-600 text-white shadow-lg scale-105"
-                  : "bg-white border hover:bg-blue-50"
+                ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-200 scale-105"
+                : "bg-white border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50"
               }`}
             >
               {cat}
@@ -391,8 +391,7 @@ function Home() {
             filteredProducts.map((product) => (
               <div
                 key={product._id}
-                className="relative bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-2xl transition-all duration-500 ease-in-out overflow-hidden group border border-gray-100 hover:-translate-y-3
-hover:rotate-1"
+                className="relative bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-indigo-100/50 transition-all duration-500 overflow-hidden group hover:-translate-y-2"
               >
                 {/* Discount Badge */}
 
@@ -410,28 +409,27 @@ hover:rotate-1"
 
                 {/* Product Image */}
 
-                <div className="h-56 bg-gray-50 flex justify-center items-center overflow-hidden">
+                <div className="h-56 bg-gradient-to-br from-slate-50 to-indigo-50 flex justify-center items-center overflow-hidden">
                   <img
                     src={`https://ecommerce-website-00z8.onrender.com${product.image}`}
                     alt={product.name}
-                    className="h-48 object-contain group-hover:scale-125
-group-hover:rotate-2 transition duration-500"
+                    className="h-48 object-contain group-hover:scale-125 group-hover:rotate-2 transition duration-500"
                   />
                 </div>
 
                 {/* Product Details */}
 
                 <div className="p-5">
-                  <p className="text-xs uppercase text-blue-600 font-semibold">
+                  <p className="text-xs uppercase tracking-wider text-indigo-600 font-bold">
                     {product.category}
                   </p>
 
-                  <h2 className="text-xl font-bold mt-2 line-clamp-2">
+                  <h2 className="text-xl font-extrabold mt-2 line-clamp-2 text-slate-900 group-hover:text-indigo-600 transition">
                     {product.name}
                   </h2>
 
                   <div className="flex items-center mt-2">
-                    <span className="bg-green-600 text-white text-sm px-2 rounded">
+                    <span className="bg-emerald-500 text-white text-sm px-2.5 py-1 rounded-lg font-bold">
                       4.5 ★
                     </span>
 
@@ -441,7 +439,7 @@ group-hover:rotate-2 transition duration-500"
                   </div>
 
                   <div className="mt-3">
-                    <span className="text-2xl font-bold text-green-600">
+                   <span className="text-2xl font-extrabold text-slate-900">
                       ₹{product.price}
                     </span>
 
@@ -487,8 +485,7 @@ group-hover:rotate-2 transition duration-500"
                     {product.stock > 0 ? (
                       <button
                         onClick={() => addToCart(product)}
-                        className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:bg-yellow-500 text-black font-bold py-3 rounded-xl transition duration-300 shadow-md hover:shadow-lg"
-                      >
+                        className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 rounded-xl transition duration-300 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5">
                         🛒 Add To Cart
                       </button>
                     ) : (
@@ -502,8 +499,7 @@ group-hover:rotate-2 transition duration-500"
 
                     <Link
                       to={`/product/${product._id}`}
-                      className="w-full text-center bg-gradient-to-r from-blue-600 to-indigo-700 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition duration-300 shadow-md hover:shadow-lg"
-                    >
+                      className="w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition duration-300">
                       👁 View Details
                     </Link>
                   </div>

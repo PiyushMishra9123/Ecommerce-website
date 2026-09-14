@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
 import AdminDashboard from "./pages/AdminDashboard";
-
+import AdminEditProduct from "./pages/AdminEditProduct";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SellerDashboard from "./pages/SellerDashboard";
 import Checkout from "./pages/Checkout";
@@ -89,6 +89,14 @@ return ( <BrowserRouter>
             </ProtectedRoute>
           }
         />
+        <Route
+  path="/admin/edit-product/:id"
+  element={
+    <ProtectedRoute>
+      <AdminEditProduct />
+    </ProtectedRoute>
+  }
+/>
         <Route
   path="/seller"
   element={
