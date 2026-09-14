@@ -4,13 +4,9 @@ import { Link } from "react-router-dom";
 
 function Register() {
   const [name, setName] = useState("");
-
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
-
   const [role, setRole] = useState("customer");
-
   const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e) => {
@@ -24,188 +20,175 @@ function Register() {
           email,
           password,
           role,
-        },
+        }
       );
 
       alert("Registration Successful");
     } catch (error) {
-      alert(error.response?.data?.message);
+      alert(error.response?.data?.message || "Registration failed");
     }
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 sm:py-12 bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 overflow-x-hidden">
+      <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
 
-    <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white rounded-3xl overflow-hidden shadow-2xl">
+        {/* Left Section */}
+        <div className="hidden md:flex relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white p-8 lg:p-12 flex-col justify-center overflow-hidden">
 
-      {/* Left */}
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
 
-      <div className="hidden md:flex relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white p-12 flex-col justify-center overflow-hidden">
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
 
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
+          <div className="relative z-10">
+            <div className="text-5xl mb-6">
+              🚀
+            </div>
 
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
+            <h1 className="text-4xl lg:text-5xl font-extrabold mb-5 leading-tight">
+              Join ShopKart
+            </h1>
 
-        <div className="relative z-10">
+            <p className="text-base lg:text-lg text-indigo-100 leading-relaxed max-w-md">
+              Create your account and start your personalized shopping
+              experience.
+            </p>
 
-          <div className="text-5xl mb-6">
-            🚀
+            <div className="mt-8 lg:mt-10 space-y-4 text-indigo-100">
+              <p>✓ Easy shopping experience</p>
+              <p>✓ Track your orders</p>
+              <p>✓ Become a seller</p>
+            </div>
           </div>
-
-          <h1 className="text-5xl font-extrabold mb-5">
-            Join ShopKart
-          </h1>
-
-          <p className="text-lg text-indigo-100 leading-relaxed">
-            Create your account and start your
-            personalized shopping experience.
-          </p>
-
-          <div className="mt-10 space-y-4 text-indigo-100">
-            <p>✓ Easy shopping experience</p>
-            <p>✓ Track your orders</p>
-            <p>✓ Become a seller</p>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Right */}
-
-      <div className="p-8 sm:p-12">
-
-        <div className="mb-7">
-          <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">
-            ShopKart
-          </p>
-
-          <h2 className="text-3xl font-extrabold text-slate-900 mt-2">
-            Create your account
-          </h2>
-
-          <p className="text-slate-500 mt-2">
-            It only takes a minute to get started.
-          </p>
         </div>
 
-        <form
-          onSubmit={handleRegister}
-          className="space-y-4"
-        >
+        {/* Right Section */}
+        <div className="p-5 sm:p-8 lg:p-12">
 
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Full Name
-            </label>
+          {/* Mobile Logo */}
+          <div className="md:hidden text-center mb-6">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white text-2xl shadow-lg">
+              🛍️
+            </div>
 
-            <input
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) =>
-                setName(e.target.value)
-              }
-              className="input-modern"
-              required
-            />
+            <p className="mt-3 text-sm font-bold text-indigo-600">
+              SHOPKART
+            </p>
           </div>
 
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Email Address
-            </label>
+          <div className="mb-6 sm:mb-7">
+            <p className="text-xs sm:text-sm font-semibold text-indigo-600 uppercase tracking-wider">
+              ShopKart
+            </p>
 
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
-              className="input-modern"
-              required
-            />
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 leading-tight">
+              Create your account
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-500 mt-2">
+              It only takes a minute to get started.
+            </p>
           </div>
 
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Account Type
-            </label>
+          <form onSubmit={handleRegister} className="space-y-4">
 
-            <select
-              value={role}
-              onChange={(e) =>
-                setRole(e.target.value)
-              }
-              className="input-modern"
-            >
-              <option value="customer">
-                Customer
-              </option>
+            {/* Name */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Full Name
+              </label>
 
-              <option value="seller">
-                Seller
-              </option>
-            </select>
-          </div>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="input-modern"
+                required
+              />
+            </div>
 
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Password
-            </label>
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Email Address
+              </label>
 
-            <input
-              type={
-                showPassword
-                  ? "text"
-                  : "password"
-              }
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
-              className="input-modern"
-              required
-            />
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-modern"
+                required
+              />
+            </div>
 
+            {/* Account Type */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Account Type
+              </label>
+
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="input-modern"
+              >
+                <option value="customer">Customer</option>
+                <option value="seller">Seller</option>
+              </select>
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Password
+              </label>
+
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Create a password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="input-modern pr-20"
+                  required
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-indigo-600 text-xs sm:text-sm font-semibold hover:text-purple-600"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
+
+            {/* Register Button */}
             <button
-              type="button"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
-              className="text-indigo-600 text-sm font-medium mt-2"
+              type="submit"
+              className="w-full gradient-button py-3 sm:py-3.5 rounded-xl font-bold shadow-lg text-sm sm:text-base"
             >
-              {showPassword
-                ? "Hide Password"
-                : "Show Password"}
+              Create Account →
             </button>
-          </div>
+          </form>
 
-          <button
-            type="submit"
-            className="w-full gradient-button py-3.5 rounded-xl font-bold shadow-lg"
-          >
-            Create Account →
-          </button>
-
-        </form>
-
-        <p className="mt-7 text-center text-slate-500">
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-indigo-600 font-bold hover:text-purple-600"
-          >
-            Login
-          </Link>
-        </p>
-
+          {/* Login Link */}
+          <p className="mt-6 sm:mt-7 text-center text-sm sm:text-base text-slate-500">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-indigo-600 font-bold hover:text-purple-600 transition-colors"
+            >
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
-
     </div>
-  </div>
-);
+  );
 }
 
 export default Register;

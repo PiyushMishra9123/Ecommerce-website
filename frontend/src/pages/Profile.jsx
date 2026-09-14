@@ -5,7 +5,6 @@ import axios from "axios";
 
 function Profile() {
   const { userInfo } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const [totalIncome, setTotalIncome] = useState(0);
@@ -37,396 +36,305 @@ function Profile() {
     }
   };
 
-  const isSeller =
-    userInfo?.user?.role === "seller";
+  const isSeller = userInfo?.user?.role === "seller";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 py-8 sm:py-12">
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 py-6 sm:py-8 lg:py-12 overflow-x-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ================= PROFILE CARD ================= */}
 
-        <div className="bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40 overflow-hidden">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40 overflow-hidden">
 
           {/* ================= PROFILE HEADER ================= */}
 
-          <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 px-6 sm:px-10 py-10 sm:py-12 text-white">
+          <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 px-5 sm:px-8 lg:px-10 py-8 sm:py-10 lg:py-12 text-white">
 
             {/* Decorative circles */}
 
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute -top-24 -right-24 w-56 sm:w-72 h-56 sm:h-72 bg-indigo-500/20 rounded-full blur-3xl" />
 
-            <div className="absolute -bottom-28 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-28 -left-20 w-56 sm:w-72 h-56 sm:h-72 bg-purple-500/20 rounded-full blur-3xl" />
 
-            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
 
               {/* Avatar */}
 
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-4xl sm:text-5xl font-extrabold shadow-2xl shadow-indigo-900/40 border border-white/20">
-
-                {userInfo?.user?.name
-                  ?.charAt(0)
-                  .toUpperCase()}
-
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-extrabold shadow-2xl shadow-indigo-900/40 border border-white/20 flex-shrink-0">
+                {userInfo?.user?.name?.charAt(0).toUpperCase()}
               </div>
 
               {/* User Information */}
 
-              <div>
-
-                <p className="text-indigo-300 text-sm font-bold uppercase tracking-[0.15em] mb-2">
+              <div className="min-w-0">
+                <p className="text-indigo-300 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-2">
                   My Profile
                 </p>
 
-                <h1 className="text-3xl sm:text-4xl font-extrabold">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold break-words">
                   {userInfo?.user?.name}
                 </h1>
 
-                <p className="text-slate-300 mt-2">
+                <p className="text-sm sm:text-base text-slate-300 mt-2 break-all">
                   {userInfo?.user?.email}
                 </p>
 
                 {/* Role Badge */}
 
-                <div className="mt-4">
+                <div className="mt-3 sm:mt-4">
+                  <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm text-xs sm:text-sm font-bold">
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full" />
 
-                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm text-sm font-bold">
-
-                    <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
-
-                    {isSeller
-                      ? "Seller Account"
-                      : "Customer Account"}
-
+                    {isSeller ? "Seller Account" : "Customer Account"}
                   </span>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
 
           {/* ================= PROFILE BODY ================= */}
 
-          <div className="p-6 sm:p-10">
+          <div className="p-5 sm:p-7 lg:p-10">
 
             {/* ================= ACCOUNT INFORMATION ================= */}
 
             <div>
-
               <div className="mb-5">
-
-                <p className="text-sm font-bold uppercase tracking-[0.15em] text-indigo-600">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-indigo-600">
                   Account
                 </p>
 
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mt-1">
                   Account Information
                 </h2>
-
               </div>
 
-              <div className="grid md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
 
                 {/* Name */}
 
-                <div className="group rounded-2xl bg-slate-50 border border-slate-100 p-5 hover:border-indigo-200 hover:bg-indigo-50/40 transition duration-300">
-
-                  <div className="flex items-center gap-4">
-
-                    <div className="w-11 h-11 rounded-xl bg-indigo-100 flex items-center justify-center text-xl">
+                <div className="group rounded-2xl bg-slate-50 border border-slate-100 p-4 sm:p-5 hover:border-indigo-200 hover:bg-indigo-50/40 transition duration-300">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-indigo-100 flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
                       👤
                     </div>
 
-                    <div>
-
-                      <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">
+                    <div className="min-w-0">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">
                         Full Name
                       </p>
 
-                      <p className="text-lg font-bold text-slate-900">
+                      <p className="text-base sm:text-lg font-bold text-slate-900 break-words">
                         {userInfo?.user?.name}
                       </p>
-
                     </div>
-
                   </div>
-
                 </div>
 
                 {/* Email */}
 
-                <div className="group rounded-2xl bg-slate-50 border border-slate-100 p-5 hover:border-purple-200 hover:bg-purple-50/40 transition duration-300">
-
-                  <div className="flex items-center gap-4">
-
-                    <div className="w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center text-xl">
+                <div className="group rounded-2xl bg-slate-50 border border-slate-100 p-4 sm:p-5 hover:border-purple-200 hover:bg-purple-50/40 transition duration-300">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-purple-100 flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
                       ✉️
                     </div>
 
                     <div className="min-w-0">
-
-                      <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">
                         Email Address
                       </p>
 
-                      <p className="text-lg font-bold text-slate-900 truncate">
+                      <p className="text-base sm:text-lg font-bold text-slate-900 break-all">
                         {userInfo?.user?.email}
                       </p>
-
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
 
             {/* ================= QUICK ACTIONS ================= */}
 
-            <div className="mt-10">
-
+            <div className="mt-8 sm:mt-10">
               <div className="mb-5">
-
-                <p className="text-sm font-bold uppercase tracking-[0.15em] text-indigo-600">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-indigo-600">
                   Dashboard
                 </p>
 
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mt-1">
                   Quick Actions
                 </h2>
-
               </div>
 
               {isSeller ? (
-
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
                   {/* Income */}
 
                   <div
-                    onClick={() =>
-                      navigate(
-                        "/income-analytics"
-                      )
-                    }
-                    className="group cursor-pointer rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white p-6 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-1 transition duration-300"
+                    onClick={() => navigate("/income-analytics")}
+                    className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white p-5 sm:p-6 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-1 transition duration-300"
                   >
-
                     <div className="flex items-start justify-between">
-
-                      <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/15 flex items-center justify-center text-xl sm:text-2xl">
                         💰
                       </div>
 
-                      <span className="text-white/60 group-hover:text-white transition">
+                      <span className="text-white/60 group-hover:text-white transition text-xl">
                         →
                       </span>
-
                     </div>
 
-                    <p className="text-indigo-100 text-sm font-semibold mt-6">
+                    <p className="text-indigo-100 text-sm font-semibold mt-5 sm:mt-6">
                       Total Income
                     </p>
 
-                    <p className="text-3xl font-extrabold mt-1">
+                    <p className="text-2xl sm:text-3xl font-extrabold mt-1 break-words">
                       ₹{totalIncome}
                     </p>
 
                     <p className="text-xs text-indigo-200 mt-2">
                       View income analytics
                     </p>
-
                   </div>
 
                   {/* Cancel Orders */}
 
                   <div
-                    onClick={() =>
-                      navigate(
-                        "/cancel-orders"
-                      )
-                    }
-                    className="group cursor-pointer rounded-3xl bg-white border border-red-100 p-6 shadow-sm hover:shadow-xl hover:shadow-red-100 hover:-translate-y-1 transition duration-300"
+                    onClick={() => navigate("/cancel-orders")}
+                    className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-white border border-red-100 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-red-100 hover:-translate-y-1 transition duration-300"
                   >
-
                     <div className="flex items-start justify-between">
-
-                      <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center text-2xl">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-red-50 flex items-center justify-center text-xl sm:text-2xl">
                         ❌
                       </div>
 
-                      <span className="text-slate-300 group-hover:text-red-500 transition">
+                      <span className="text-slate-300 group-hover:text-red-500 transition text-xl">
                         →
                       </span>
-
                     </div>
 
-                    <p className="text-slate-500 text-sm font-semibold mt-6">
+                    <p className="text-slate-500 text-sm font-semibold mt-5 sm:mt-6">
                       Cancel Orders
                     </p>
 
-                    <p className="text-3xl font-extrabold text-red-600 mt-1">
+                    <p className="text-2xl sm:text-3xl font-extrabold text-red-600 mt-1">
                       {cancelOrders}
                     </p>
 
                     <p className="text-xs text-slate-400 mt-2">
                       View cancelled orders
                     </p>
-
                   </div>
 
                   {/* Return Orders */}
 
                   <div
-                    onClick={() =>
-                      navigate(
-                        "/return-orders"
-                      )
-                    }
-                    className="group cursor-pointer rounded-3xl bg-white border border-orange-100 p-6 shadow-sm hover:shadow-xl hover:shadow-orange-100 hover:-translate-y-1 transition duration-300"
+                    onClick={() => navigate("/return-orders")}
+                    className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-white border border-orange-100 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-orange-100 hover:-translate-y-1 transition duration-300"
                   >
-
                     <div className="flex items-start justify-between">
-
-                      <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-2xl">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-xl sm:text-2xl">
                         ↩️
                       </div>
 
-                      <span className="text-slate-300 group-hover:text-orange-500 transition">
+                      <span className="text-slate-300 group-hover:text-orange-500 transition text-xl">
                         →
                       </span>
-
                     </div>
 
-                    <p className="text-slate-500 text-sm font-semibold mt-6">
+                    <p className="text-slate-500 text-sm font-semibold mt-5 sm:mt-6">
                       Return Orders
                     </p>
 
-                    <p className="text-3xl font-extrabold text-orange-500 mt-1">
+                    <p className="text-2xl sm:text-3xl font-extrabold text-orange-500 mt-1">
                       {returnOrders}
                     </p>
 
                     <p className="text-xs text-slate-400 mt-2">
                       View return requests
                     </p>
-
                   </div>
-
                 </div>
-
               ) : (
-
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
 
                   {/* My Orders */}
 
                   <div
-                    onClick={() =>
-                      navigate("/orders")
-                    }
-                    className="group cursor-pointer rounded-3xl bg-white border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:shadow-indigo-100 hover:-translate-y-1 transition duration-300"
+                    onClick={() => navigate("/orders")}
+                    className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-white border border-slate-100 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-indigo-100 hover:-translate-y-1 transition duration-300"
                   >
-
                     <div className="flex items-start justify-between">
-
-                      <div className="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-2xl">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-xl sm:text-2xl">
                         📦
                       </div>
 
                       <span className="text-slate-300 text-xl group-hover:text-indigo-600 transition">
                         →
                       </span>
-
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-slate-900 mt-6">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mt-5 sm:mt-6">
                       My Orders
                     </h3>
 
-                    <p className="text-sm text-slate-500 mt-2">
-                      Track your orders and view
-                      order history.
+                    <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                      Track your orders and view order history.
                     </p>
-
                   </div>
 
                   {/* Cart */}
 
                   <div
-                    onClick={() =>
-                      navigate("/cart")
-                    }
-                    className="group cursor-pointer rounded-3xl bg-white border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:shadow-purple-100 hover:-translate-y-1 transition duration-300"
+                    onClick={() => navigate("/cart")}
+                    className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-white border border-slate-100 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-purple-100 hover:-translate-y-1 transition duration-300"
                   >
-
                     <div className="flex items-start justify-between">
-
-                      <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-2xl">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-xl sm:text-2xl">
                         🛒
                       </div>
 
                       <span className="text-slate-300 text-xl group-hover:text-purple-600 transition">
                         →
                       </span>
-
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-slate-900 mt-6">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mt-5 sm:mt-6">
                       My Cart
                     </h3>
 
-                    <p className="text-sm text-slate-500 mt-2">
-                      View your cart and continue
-                      shopping.
+                    <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                      View your cart and continue shopping.
                     </p>
-
                   </div>
-
                 </div>
-
               )}
-
             </div>
 
             {/* ================= BOTTOM INFO ================= */}
 
-            <div className="mt-10 rounded-2xl bg-gradient-to-r from-slate-50 to-indigo-50 border border-slate-100 p-5">
-
-              <div className="flex items-start gap-4">
-
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+            <div className="mt-8 sm:mt-10 rounded-2xl bg-gradient-to-r from-slate-50 to-indigo-50 border border-slate-100 p-4 sm:p-5">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
                   🔐
                 </div>
 
-                <div>
-
+                <div className="min-w-0">
                   <h3 className="font-bold text-slate-900">
                     Your Account is Secure
                   </h3>
 
-                  <p className="text-sm text-slate-500 mt-1">
-                    Your account information is
-                    protected and securely stored.
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                    Your account information is protected and securely stored.
                   </p>
-
                 </div>
-
               </div>
-
             </div>
 
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }
