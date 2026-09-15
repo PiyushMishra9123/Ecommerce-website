@@ -1,50 +1,30 @@
-const express =
-  require("express");
+const express = require("express");
+const router = express.Router();
 
-const multer =
-  require("multer");
-
-const path =
-  require("path");
-
-const router =
-  express.Router();
-
-const storage =
-  multer.diskStorage({
-    destination(
-      req,
-      file,
-      cb
-    ) {
-      cb(null, "uploads/");
-    },
-
-    filename(
-      req,
-      file,
-      cb
-    ) {
-      cb(
-        null,
-        Date.now() +
-          path.extname(
-            file.originalname
-          )
-      );
-    },
-  });
-
-const upload =
-  multer({ storage });
+const upload = require("../middleware/uploadMiddleware");
 
 router.post(
   "/",
   upload.single("image"),
   (req, res) => {
-    res.json({
-      image: `/uploads/${req.file.filename}`,
-    });
+    try {
+      if (!req.file) {
+        return res.status(400).json({
+          message: "Image is required",
+        });
+      }
+
+      res.json({
+        image: req.file.path,
+      });
+    } catch (error) {
+      console.error(error);
+
+      res.status(500).json({
+        message: "Image upload failed",
+        error: error.message,
+      });
+    }
   }
 );
 

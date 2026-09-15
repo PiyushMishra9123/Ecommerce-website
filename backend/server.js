@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const path = require("path");
+// const path = require("path");
 
 dotenv.config();
 
@@ -34,10 +34,10 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/payment", paymentRoutes);
 
-app.use(
-  "/uploads",
-  express.static(path.join(__dirname, "/uploads"))
-);
+// app.use(
+//   "/uploads",
+//   express.static(path.join(__dirname, "/uploads"))
+// );
 
 app.use("/api/upload", require("./routes/uploadRoutes"));
 
