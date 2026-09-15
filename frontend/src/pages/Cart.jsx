@@ -192,7 +192,7 @@ function Cart() {
                     <div className="w-full sm:w-36 h-36 rounded-2xl bg-gradient-to-br from-slate-50 to-indigo-50 border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0">
 
                       <img
-                        src={`https://ecommerce-website-00z8.onrender.com${item.image}`}
+                        src={item.image}
                         alt={item.name}
                         className="w-28 h-28 object-contain transition duration-300 hover:scale-110"
                       />

@@ -399,7 +399,7 @@ function Checkout() {
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-slate-50 to-indigo-50 border border-slate-100 flex items-center justify-center flex-shrink-0">
 
                       <img
-                        src={`https://ecommerce-website-00z8.onrender.com${item.image}`}
+                        src={item.image}
                         alt={item.name}
                         className="w-11 h-11 object-contain"
                       />

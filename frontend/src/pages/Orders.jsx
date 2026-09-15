@@ -274,16 +274,9 @@ function Orders() {
                         <div className="flex items-start gap-3 sm:gap-4 min-w-0">
                           <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl bg-white border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0">
                             <img
-                              src={
-                                item.product?.image
-                                  ? `https://ecommerce-website-00z8.onrender.com${item.product.image}`
-                                  : item.image
-                                  ? `https://ecommerce-website-00z8.onrender.com${item.image}`
-                                  : "https://via.placeholder.com/150"
-                              }
-                              alt={item.name}
-                              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain transition duration-300 hover:scale-105"
-                            />
+                            src={item.product?.image || item.image || "https://via.placeholder.com/150"}
+                            alt={item.name} 
+                            className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain transition duration-300 hover:scale-105"/>
                           </div>
 
                           <div className="min-w-0 pt-1">
