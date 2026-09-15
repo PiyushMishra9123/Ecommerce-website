@@ -71,7 +71,7 @@ function ProductDetails() {
                 {/* Product Image */}
 
                 <img
-                  src={`https://ecommerce-website-00z8.onrender.com${product.image}`}
+                  src={product.image}
                   alt={product.name}
                   className="relative z-10 max-h-[270px] sm:max-h-[380px] lg:max-h-[420px] max-w-[82%] sm:max-w-[90%] object-contain transition duration-500 group-hover:scale-105 drop-shadow-xl"
                 />

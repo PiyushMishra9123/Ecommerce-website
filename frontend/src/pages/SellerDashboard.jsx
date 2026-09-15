@@ -510,7 +510,7 @@ function SellerDashboard() {
                   <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-3">
 
                     <img
-                      src={`https://ecommerce-website-00z8.onrender.com${image}`}
+                      src={image}
                       alt="Product Preview"
                       className="w-20 h-20 object-cover rounded-xl border border-slate-200"
                     />
@@ -613,7 +613,7 @@ function SellerDashboard() {
                     {product.image ? (
 
                       <img
-                        src={`https://ecommerce-website-00z8.onrender.com${product.image}`}
+                        src={product.image}
                         alt={product.name}
                         className="w-full h-full object-contain p-4 group-hover:scale-105 transition duration-300"
                       />

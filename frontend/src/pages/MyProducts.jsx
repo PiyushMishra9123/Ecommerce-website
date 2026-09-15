@@ -238,7 +238,7 @@ function MyProducts() {
 
                   {product.image ? (
                     <img
-                      src={`https://ecommerce-website-00z8.onrender.com${product.image}`}
+                      src={product.image}
                       alt={product.name}
                       className="h-full w-full object-contain p-5 sm:p-6 group-hover:scale-105 transition-transform duration-500"
                     />

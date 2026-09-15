@@ -427,7 +427,7 @@ function Home() {
 
                 <div className="h-48 sm:h-56 bg-gradient-to-br from-slate-50 to-indigo-50 flex justify-center items-center overflow-hidden">
                   <img
-                    src={`https://ecommerce-website-00z8.onrender.com${product.image}`}
+                    src={product.image}
                     alt={product.name}
                     className="h-40 sm:h-48 max-w-full object-contain group-hover:scale-110 group-hover:rotate-2 transition duration-500"
                   />
